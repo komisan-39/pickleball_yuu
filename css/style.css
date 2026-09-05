@@ -507,8 +507,8 @@ section {
 .news-icon {
   position: absolute;
   right: 12px;
-  top: 14px;
-  font-size: 3rem;
+  top: 24px;
+  font-size: 2rem;
   font-weight: bold;
   width: 24px;
   text-align: center;
@@ -567,8 +567,8 @@ section {
 .rule-icon {
   position: absolute;
   right: 12px;
-  top: -3px;
-  font-size: 3rem;
+  top: 6px;
+  font-size: 2rem;
   font-weight: bold;
   width: 24px;
   text-align: center;

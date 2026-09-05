@@ -82,7 +82,6 @@ body {
 
 .schedule-date {
   width: 40%;
-  font-weight: bold;
   font-size: 1.6rem;
   color: black;
 }
@@ -109,7 +108,6 @@ h2 {
 
 .schedule-date {
   font-size: 1.6rem;
-  font-weight: bold;
 }
 
 body {
@@ -179,7 +177,6 @@ body {
 
 .schedule-date {
   width: 37%;
-  font-weight: bold;
   font-size: 1.6rem;
   text-align: left;
 }
@@ -187,7 +184,6 @@ body {
 .time {
   text-align: center;
   width: 36%;
-  font-weight: bold;
   font-size: 1.6rem;
 }
 
@@ -220,7 +216,6 @@ h2 {
 
 .schedule-date {
   font-size: 1.6rem;
-  font-weight: bold;
 }
 
 .schedule-info .time {
@@ -491,14 +486,14 @@ section {
 
 /* 日付（1行目） */
 .news-date {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #555;
   margin-bottom: 4px;
 }
 
 /* タイトル（2行目） */
 .news-text {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 0.02em;
 }
 
@@ -645,7 +640,7 @@ section {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 3px 14px;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family: 'Times New Roman', serif;
   cursor: pointer;
   color: #333;
@@ -659,7 +654,7 @@ section {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 3px 14px;
-  font-size: 1.8rem; /* ← 少し大きめで主役感 */
+  font-size: 1.6rem; /* ← 少し大きめで主役感 */
   font-family: 'Times New Roman', serif;
   cursor: pointer;
   color: #333;

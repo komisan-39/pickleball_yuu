@@ -179,17 +179,19 @@ body {
   width: 37%;
   font-size: 1.6rem;
   text-align: left;
+  font-weight: 500;
 }
 
 .time {
   text-align: center;
   width: 36%;
   font-size: 1.6rem;
+  font-weight: 500;
 }
 
 .place {
   width: 27%;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 1.6rem;
   text-align: left;
 }

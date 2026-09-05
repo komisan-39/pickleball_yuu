@@ -1,0 +1,618 @@
+/* ============================
+   RESET（必要最低限）
+============================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ============================
+   BASE（サイト全体の基礎）
+============================ */
+html {
+  font-size: 10px; /* rem設計の基準 */
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.8;
+  color: #000;
+  background-color: #fff;
+  font-size: 1.6rem; /* スマホで見やすい */
+}
+
+/* ============================
+   スケジュール表（スマホメイン）
+============================ */
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ← 左右の高さを揃える */
+  padding: 16px 8px;
+  margin-bottom: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 4px; /* ← 左右の間隔を詰める */
+}
+
+.schedule-date {
+  width: 40%;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: black;
+}
+
+/* 曜日色分け */
+.sun {
+  color: red;
+}
+
+.sat {
+  color: blue;
+}
+
+/* 見出し */
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+/* セクション余白 */
+.section {
+  padding: 2.4rem 1.6rem;
+}
+
+.schedule-date {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+body {
+  background: #f9f6ee; /* ほんのりアイボリー */
+}
+
+h2 {
+  font-family: 'Times New Roman', serif; /* 日付と統一 */
+  font-size: 2.6rem; /* 階層が分かる大きさ */
+  font-weight: 700;
+  color: #222; /* 少し濃いめの黒 */
+  text-align: center; /* センター揃え */
+  letter-spacing: 0.03em; /* 上品な広がり */
+  margin-bottom: 2rem; /* 下の余白 */
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, #444, #aaa);
+  margin: 8px auto 0;
+  opacity: 0.7;
+}
+
+section {
+  padding: 40px 20px;
+}
+
+.month-nav button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ============================
+   BASE（サイト全体の基礎）
+============================ */
+html {
+  font-size: 10px; /* rem設計の基準 */
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.8;
+  color: #000;
+  background-color: #fff;
+  font-size: 1.6rem; /* スマホで見やすい */
+}
+
+/* ============================
+   スケジュール表（スマホメイン）
+============================ */
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* ← 左右の高さを揃える */
+  padding: 12px 8px;
+  margin-bottom: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 4px; /* ← 左右の間隔を詰める */
+}
+
+.schedule-date {
+  width: 37%;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+.time {
+  text-align: center;
+  width: 36%;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.place {
+  width: 27%;
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: left;
+}
+
+/* 曜日色分け */
+.sun {
+  color: red;
+}
+
+.sat {
+  color: blue;
+}
+
+/* 見出し */
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+/* セクション余白 */
+.section {
+  padding: 5rem 1.6rem;
+}
+
+.schedule-date {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.schedule-info .time {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.schedule-info .place {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+body {
+  background: #f9f6ee; /* ほんのりアイボリー */
+}
+
+h2 {
+  font-family: 'Times New Roman', serif; /* 日付と統一 */
+  font-size: 2.6rem; /* 階層が分かる大きさ */
+  font-weight: 700;
+  color: #222; /* 少し濃いめの黒 */
+  text-align: center; /* センター揃え */
+  letter-spacing: 0.03em; /* 上品な広がり */
+  margin-bottom: 2rem; /* 下の余白 */
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to right, #444, #aaa);
+  margin: 8px auto 0;
+  opacity: 0.7;
+}
+
+section {
+  padding: 62px 0;
+}
+
+.month-nav button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ============================
+   月送りナビ（スマホ向け）
+============================ */
+.month-nav {
+  display: flex;
+  justify-content: space-between; /* 左右にボタン、中央に月 */
+  align-items: center;
+  padding: 16px 0px;
+  margin-bottom: 20px;
+}
+
+.month-nav .current-month {
+  font-size: 2.2rem; /* ← 月を大きく上品に */
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  flex: 1; /* ← 真ん中に固定 */
+}
+
+.month-nav button {
+  margin: 0 6px; /* ← ボタンと中央の文字の間隔を広げる */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 2rem;
+  font-family: 'Times New Roman', serif;
+  cursor: pointer;
+  color: #333;
+  min-width: 60px;
+}
+
+.nav.open {
+  top: 0;
+}
+
+/* ヘッダー（ロゴ中央・ハンバーガー右上） */
+.header {
+  width: 100%;
+  height: 62px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* ▼ ガラス風の背景（最重要） */
+  background: rgba(249, 246, 238, 0.25); /* ← 黒ガラス。あなたのサイトに最適 */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  padding: 12px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* ▼ 下にうっすら金ライン（あなたのデザインに合う） */
+  border-bottom: 1px solid rgba(44, 43, 37, 0.4); /* #bdae5c */
+}
+
+.header-logo img {
+  height: 60px;
+}
+
+/* ハンバーガー右上 */
+.hamburger {
+  position: absolute;
+  right: 30px; /* ← 右端に固定 */
+  top: 50%; /* ← 上下中央に配置 */
+  transform: translateY(-50%); /* ← 中央にぴったり合わせる */
+
+  width: 32px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999999;
+}
+
+.hamburger span {
+  display: block;
+  width: 32px;
+  height: 4px;
+  background: #000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* メニューが開いた時の × の色 */
+.hamburger.active span {
+  background: #fff; /* ← 好きな色に変更 */
+}
+
+/* ☰ → × の変形（あなたの高さ24pxに合わせた最適値） */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ▼ メニュー（ガラス風 × 黒） */
+.nav {
+  position: fixed;
+  top: -80vh;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  background: rgba(0, 0, 0, 0.55); /* ← 少し黒っぽく */
+  backdrop-filter: blur(20px); /* ← ぼかし強め */
+  -webkit-backdrop-filter: blur(20px);
+  padding: 60px 20px;
+  transition: top 0.4s ease;
+  text-align: center;
+  z-index: 999;
+  display: flex;
+  justify-content: center; /* ← 左右中央 */
+  align-items: center; /* ← 上下中央 */
+  flex-direction: column; /* ← 縦並び */
+}
+
+.nav.open {
+  top: 0;
+}
+
+.nav ul li {
+  margin: 20px 0;
+}
+
+.nav a {
+  font-family: 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+/* ▼ 下の半透明オーバーレイ（背景ぼかし） */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(80, 80, 80, 0.35); /* ← グレーの半透明 */
+  backdrop-filter: blur(8px); /* ← ぼかし */
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ▼ 文章の幅を統一にする */
+.whats {
+  text-align: justify;
+}
+
+.footer {
+  text-align: center;
+  margin: 120px 50px 120px;
+}
+
+.schedule-row.two-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.schedule-row.two-columns .schedule-date {
+  width: 38%;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+.schedule-row.two-columns .time {
+  width: 62%;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+.schedule-row.two-columns .place {
+  display: none;
+}
+
+.time {
+  white-space: pre-line;
+}
+
+#yuu .about-text {
+  line-height: 1.8;
+  font-size: 1.7rem;
+  max-width: 820px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+  text-align: justify;
+}
+
+.whats {
+  letter-spacing: 0.02em;
+}
+
+.news-title {
+  padding: 6px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+/* 日付（1行目） */
+.news-date {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* タイトル（2行目） */
+.news-text {
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* ＋ / − アイコン（右上に配置） */
+.news-icon {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  font-size: 3rem;
+  font-weight: bold;
+  width: 24px;
+  text-align: center;
+}
+
+/* 詳細（最初は非表示） */
+.news-detail {
+  max-height: 0; /* ← 高さゼロで閉じる */
+  overflow: hidden; /* ← はみ出しを隠す */
+  transition: max-height 0.4s ease; /* ← スーーッと開く */
+  line-height: 1.9;
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  padding: 0; /* ← 閉じている時は余白ゼロ */
+}
+
+.news-item.open .news-detail {
+  padding: 10px 0 20px; /* ← 開いた時だけ余白を付ける */
+  letter-spacing: 0.02em;
+  line-height: 2.6rem;
+}
+
+/* 開いたときの装飾 */
+.news-item.open .news-title {
+  color: #444;
+  font-weight: bold;
+  line-height: 3rem;
+  max-height: 200px;
+}
+
+.schedule-date,
+.time {
+  font-variant-numeric: tabular-nums;
+}
+
+.news-detail a {
+  text-decoration: underline;
+  color: #333;
+}
+
+/* ルール：タイトル部分 */
+.rule-title {
+  padding: 6px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+
+/* タイトル文字 */
+.rule-text {
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* ＋ / − アイコン */
+.rule-icon {
+  position: absolute;
+  right: 12px;
+  top: -3px;
+  font-size: 3rem;
+  font-weight: bold;
+  width: 24px;
+  text-align: center;
+}
+
+/* 詳細（閉じた状態） */
+.rule-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  line-height: 1.9;
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  padding: 0;
+}
+
+/* 開いた状態 */
+.rule-item.open .rule-detail {
+  padding: 10px 0 20px;
+  letter-spacing: 0.02em;
+  line-height: 2.6rem;
+}
+
+.rule-item.open .rule-title {
+  color: #444;
+  font-weight: bold;
+}
+
+#rule img {
+  margin-top: 16px; /* ← 画像を下にずらす */
+}
+
+#access img {
+  margin-top: 16px;
+}
+
+#about img {
+  margin-top: 16px;
+}
+
+#yuu img {
+  margin-top: 16px;
+}
+
+.rule-detail {
+  text-align: justify;
+}

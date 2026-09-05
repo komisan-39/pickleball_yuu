@@ -616,3 +616,55 @@ section {
 .rule-detail {
   text-align: justify;
 }
+
+.month-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+  color: #222;
+  letter-spacing: 0.03em;
+}
+
+/* ============================
+   月送りナビ（前月・今月・翌月）
+============================ */
+.month-nav {
+  display: flex;
+  justify-content: space-between; /* 左右に配置 */
+  align-items: center;
+  gap: -20px;
+  margin-bottom: 12px;
+}
+
+/* 左右ボタン（前月・翌月） */
+.month-nav button.prev-month,
+.month-nav button.next-month {
+  flex: 1; /* ← 左右ボタンを広めに */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 3px 14px;
+  font-size: 1.8rem;
+  font-family: 'Times New Roman', serif;
+  cursor: pointer;
+  color: #333;
+  text-align: center;
+}
+
+/* 今月ボタン（中央を広く） */
+.month-nav button.current-btn {
+  flex: 2; /* ← 真ん中をいちばん広く */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 3px 14px;
+  font-size: 2rem; /* ← 少し大きめで主役感 */
+  font-family: 'Times New Roman', serif;
+  cursor: pointer;
+  color: #333;
+  text-align: center;
+}
+
+

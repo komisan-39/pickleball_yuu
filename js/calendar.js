@@ -149,25 +149,15 @@ const practice = {
   '2026-09-24': { time: '12:30～15:00 土古(半)', place: '' },
 };
 
-// ------------------------------
-// 初期表示
-// ------------------------------
-loadSchedule();
-
 // 月切り替え機能
 const today = new Date();
 let currentYear = today.getFullYear();
 let currentMonth = today.getMonth() + 1;
 
-function updateMonthDisplay() {
-  document.querySelector('.current-month').textContent =
-    `${currentYear}年${String(currentMonth).padStart(2, '0')}月`;
-}
-
 async function loadSchedule() {
   const holidays = await fetchHolidays(currentYear);
   generateSchedule(currentYear, currentMonth, holidays);
-  updateMonthDisplay();
+  updateMonthTitle();
 }
 
 document.querySelector('.prev-month').addEventListener('click', () => {
@@ -179,6 +169,7 @@ document.querySelector('.prev-month').addEventListener('click', () => {
   loadSchedule();
 });
 
+// ▼ 翌月ボタン
 document.querySelector('.next-month').addEventListener('click', () => {
   currentMonth++;
   if (currentMonth === 13) {
@@ -188,5 +179,21 @@ document.querySelector('.next-month').addEventListener('click', () => {
   loadSchedule();
 });
 
-// ★ 初期表示（最後に置く）
+// ▼ 今月ボタン
+document.querySelector('.current-btn').addEventListener('click', () => {
+  const today = new Date();
+  currentYear = today.getFullYear();
+  currentMonth = today.getMonth() + 1;
+  loadSchedule();
+  updateMonthTitle();
+});
+
+// ▼ 月タイトル更新
+function updateMonthTitle() {
+  document.querySelector('.month-title').textContent =
+    `${currentYear}年${String(currentMonth).padStart(2, '0')}月`;
+}
+
+// ▼ 初期表示
 loadSchedule();
+updateMonthTitle();

@@ -663,6 +663,22 @@ section {
   text-align: center;
 }
 
-.month-title{
-  font-family: system-ui, sans-serif;;
+.month-title {
+  font-family: system-ui, sans-serif;
+}
+
+#access {
+  position: relative;
+}
+
+#access::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; /* ← フッターの上に影を落とす */
+  left: 0;
+  width: 100%;
+  height: 6px;
+
+  /* ▼ atelier en の世界観に合う「柔らかい影」 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0));
 }

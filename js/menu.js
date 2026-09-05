@@ -113,7 +113,7 @@ document.querySelectorAll('.news-title').forEach((title) => {
       const ic = i.querySelector('.news-icon');
       d.style.maxHeight = null;
       d.style.padding = '0';
-      ic.textContent = '＋';
+      ic.textContent = '▼';
     });
 
     // クリックした項目だけ開く
@@ -125,7 +125,7 @@ document.querySelectorAll('.news-title').forEach((title) => {
       detail.style.maxHeight = detail.scrollHeight + padding + 'px';
 
       detail.style.padding = '10px 0 20px';
-      icon.textContent = '−';
+      icon.textContent = '▲';
     }
   });
 });
@@ -146,7 +146,7 @@ document.querySelectorAll('.rule-title').forEach((title) => {
       const ic = i.querySelector('.rule-icon');
       d.style.maxHeight = null;
       d.style.padding = '0';
-      ic.textContent = '＋';
+      ic.textContent = '▼';
     });
 
     // クリックした項目だけ開く
@@ -156,7 +156,7 @@ document.querySelectorAll('.rule-title').forEach((title) => {
       const padding = 30;
       detail.style.maxHeight = detail.scrollHeight + padding + 'px';
       detail.style.padding = '10px 0 20px';
-      icon.textContent = '−';
+      icon.textContent = '▲';
     }
   });
 });

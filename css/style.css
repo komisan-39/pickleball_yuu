@@ -728,15 +728,16 @@ section {
   }
 }
 
+/* 親セクション：高さは自動、横アニメだけを閉じ込める */
 #schedule {
   position: relative;
-  height: 650px; /* schedule-wrapper と同じ高さにする */
-  overflow: hidden; /* 内部の動きを外に出さない */
+  overflow: hidden; /* ← 横スライドのアニメを外に出さない */
+  height: auto; /* ← 固定を解除して縦に伸びる */
 }
 
+/* 子ラッパー：高さ固定を解除、縦方向は全部表示 */
 #schedule-wrapper {
   position: relative;
-  overflow: hidden;
-  height: 650px;
+  height: auto; /* ← 固定解除（最重要） */
+  overflow: visible; /* ← 縦方向を切らない */
 }
-

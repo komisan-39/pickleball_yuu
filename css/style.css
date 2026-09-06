@@ -687,3 +687,12 @@ section {
   opacity: 0.5;
   background-color: gray;
 }
+
+.no-practice {
+  text-align: center;
+}
+
+.schedule-row.two-columns .time.no-practice {
+  text-align: center;
+  padding-right: 80px;
+}

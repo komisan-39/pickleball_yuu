@@ -36,8 +36,7 @@ function generateSchedule(year, month, holidays) {
     // ★ 今日より前ならグレーにする（ここが正しい位置）
     const today = new Date();
     const currentDate = new Date(year, month - 1, day);
-    if (currentDate.getTime() < today.setHours(0,0,0,0))
- {
+    if (currentDate.getTime() < today.setHours(0, 0, 0, 0)) {
       row.classList.add('past-day');
     }
 
@@ -73,7 +72,7 @@ function generateSchedule(year, month, holidays) {
       row.appendChild(placeDiv);
     } else {
       const emptyTime = document.createElement('div');
-      emptyTime.className = 'time';
+      emptyTime.className = 'time no-practice'; // ← ここだけ変更
       emptyTime.textContent = '—';
 
       const emptyPlace = document.createElement('div');

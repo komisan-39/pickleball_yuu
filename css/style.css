@@ -728,8 +728,15 @@ section {
   }
 }
 
+#schedule {
+  position: relative;
+  height: 650px; /* schedule-wrapper と同じ高さにする */
+  overflow: hidden; /* 内部の動きを外に出さない */
+}
+
 #schedule-wrapper {
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  height: 650px;
 }
+

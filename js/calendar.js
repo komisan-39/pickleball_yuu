@@ -33,7 +33,7 @@ function generateSchedule(year, month, holidays) {
     const ddDisplay = String(day).padStart(2, '0');
     date.textContent = `${mmDisplay}月${ddDisplay}日${youbiDisplay}`;
 
-    // ★ 今日より前ならグレーにする（ここが正しい位置）
+    // ★ 今日より前ならグレーにする
     const today = new Date();
     const currentDate = new Date(year, month - 1, day);
     if (currentDate.getTime() < today.setHours(0, 0, 0, 0)) {
@@ -72,7 +72,7 @@ function generateSchedule(year, month, holidays) {
       row.appendChild(placeDiv);
     } else {
       const emptyTime = document.createElement('div');
-      emptyTime.className = 'time no-practice'; // ← ここだけ変更
+      emptyTime.className = 'time no-practice';
       emptyTime.textContent = '—';
 
       const emptyPlace = document.createElement('div');
@@ -161,9 +161,9 @@ async function loadSchedule() {
 // ▼ 前月ボタン
 document.querySelectorAll('.prev-month').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-wrapper'); // ← 変更
+    const table = document.getElementById('schedule-wrapper');
 
-    table.classList.add('slide-prev'); // ← 追加
+    table.classList.add('slide-prev');
 
     currentMonth--;
     if (currentMonth === 0) {
@@ -172,17 +172,16 @@ document.querySelectorAll('.prev-month').forEach((btn) => {
     }
     loadSchedule();
 
-    setTimeout(() => table.classList.remove('slide-prev'), 300); // ← 追加
+    setTimeout(() => table.classList.remove('slide-prev'), 300);
   });
 });
-
 
 // ▼ 翌月ボタン
 document.querySelectorAll('.next-month').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-wrapper'); // ← 変更
+    const table = document.getElementById('schedule-wrapper');
 
-    table.classList.add('slide-next'); // ← 追加
+    table.classList.add('slide-next');
 
     currentMonth++;
     if (currentMonth === 13) {
@@ -191,26 +190,25 @@ document.querySelectorAll('.next-month').forEach((btn) => {
     }
     loadSchedule();
 
-    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
+    setTimeout(() => table.classList.remove('slide-next'), 300);
   });
 });
 
 // ▼ 今月ボタン
 document.querySelectorAll('.current-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-wrapper'); // ← 変更
+    const table = document.getElementById('schedule-wrapper');
 
-    table.classList.add('slide-next'); // ← 追加（自然に見える）
+    table.classList.add('slide-next');
 
     const today = new Date();
     currentYear = today.getFullYear();
     currentMonth = today.getMonth() + 1;
     loadSchedule();
 
-    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
+    setTimeout(() => table.classList.remove('slide-next'), 300);
   });
 });
-
 
 // ▼ 初期表示
 loadSchedule();
@@ -221,37 +219,40 @@ loadSchedule();
 let touchStartX = 0;
 let touchEndX = 0;
 
-document.addEventListener('touchstart', (e) => {
+// ★ ここが最重要：document → schedule-wrapper に変更
+const swipeArea = document.getElementById('schedule-wrapper');
+
+swipeArea.addEventListener('touchstart', (e) => {
   touchStartX = e.changedTouches[0].screenX;
 });
 
-document.addEventListener('touchend', (e) => {
+swipeArea.addEventListener('touchend', (e) => {
   touchEndX = e.changedTouches[0].screenX;
 
   const diff = touchEndX - touchStartX;
-  const table = document.getElementById('schedule-table');
+  const table = document.getElementById('schedule-wrapper');
 
   // 右 → 左（次月へ）
   if (diff < -50) {
-    table.classList.add('slide-next'); // ← 追加
+    table.classList.add('slide-next');
     currentMonth++;
     if (currentMonth === 13) {
       currentMonth = 1;
       currentYear++;
     }
     loadSchedule();
-    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
+    setTimeout(() => table.classList.remove('slide-next'), 300);
   }
 
   // 左 → 右（前月へ）
   if (diff > 50) {
-    table.classList.add('slide-prev'); // ← 追加
+    table.classList.add('slide-prev');
     currentMonth--;
     if (currentMonth === 0) {
       currentMonth = 12;
       currentYear--;
     }
     loadSchedule();
-    setTimeout(() => table.classList.remove('slide-prev'), 300); // ← 追加
+    setTimeout(() => table.classList.remove('slide-prev'), 300);
   }
 });

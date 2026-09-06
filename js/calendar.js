@@ -33,6 +33,14 @@ function generateSchedule(year, month, holidays) {
     const ddDisplay = String(day).padStart(2, '0');
     date.textContent = `${mmDisplay}月${ddDisplay}日${youbiDisplay}`;
 
+    // ★ 今日より前ならグレーにする（ここが正しい位置）
+    const today = new Date();
+    const currentDate = new Date(year, month - 1, day);
+    if (currentDate.getTime() < today.setHours(0,0,0,0))
+ {
+      row.classList.add('past-day');
+    }
+
     const mm = String(month).padStart(2, '0');
     const dd = String(day).padStart(2, '0');
     const key = `${year}-${mm}-${dd}`;
@@ -152,7 +160,7 @@ async function loadSchedule() {
 }
 
 // ▼ 前月ボタン
-document.querySelectorAll('.prev-month').forEach(btn => {
+document.querySelectorAll('.prev-month').forEach((btn) => {
   btn.addEventListener('click', () => {
     currentMonth--;
     if (currentMonth === 0) {
@@ -164,7 +172,7 @@ document.querySelectorAll('.prev-month').forEach(btn => {
 });
 
 // ▼ 翌月ボタン
-document.querySelectorAll('.next-month').forEach(btn => {
+document.querySelectorAll('.next-month').forEach((btn) => {
   btn.addEventListener('click', () => {
     currentMonth++;
     if (currentMonth === 13) {
@@ -176,7 +184,7 @@ document.querySelectorAll('.next-month').forEach(btn => {
 });
 
 // ▼ 今月ボタン
-document.querySelectorAll('.current-btn').forEach(btn => {
+document.querySelectorAll('.current-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const today = new Date();
     currentYear = today.getFullYear();

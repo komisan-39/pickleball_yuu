@@ -161,7 +161,8 @@ async function loadSchedule() {
 // ▼ 前月ボタン
 document.querySelectorAll('.prev-month').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-table');
+    const table = document.getElementById('schedule-wrapper'); // ← 変更
+
     table.classList.add('slide-prev'); // ← 追加
 
     currentMonth--;
@@ -175,10 +176,12 @@ document.querySelectorAll('.prev-month').forEach((btn) => {
   });
 });
 
+
 // ▼ 翌月ボタン
 document.querySelectorAll('.next-month').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-table');
+    const table = document.getElementById('schedule-wrapper'); // ← 変更
+
     table.classList.add('slide-next'); // ← 追加
 
     currentMonth++;
@@ -195,8 +198,9 @@ document.querySelectorAll('.next-month').forEach((btn) => {
 // ▼ 今月ボタン
 document.querySelectorAll('.current-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
-    const table = document.getElementById('schedule-table');
-    table.classList.add('slide-next'); // ← どちらでもOK。自然に見える
+    const table = document.getElementById('schedule-wrapper'); // ← 変更
+
+    table.classList.add('slide-next'); // ← 追加（自然に見える）
 
     const today = new Date();
     currentYear = today.getFullYear();
@@ -206,6 +210,7 @@ document.querySelectorAll('.current-btn').forEach((btn) => {
     setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
   });
 });
+
 
 // ▼ 初期表示
 loadSchedule();

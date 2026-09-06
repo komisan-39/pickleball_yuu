@@ -161,36 +161,92 @@ async function loadSchedule() {
 // ▼ 前月ボタン
 document.querySelectorAll('.prev-month').forEach((btn) => {
   btn.addEventListener('click', () => {
+    const table = document.getElementById('schedule-table');
+    table.classList.add('slide-prev'); // ← 追加
+
     currentMonth--;
     if (currentMonth === 0) {
       currentMonth = 12;
       currentYear--;
     }
     loadSchedule();
+
+    setTimeout(() => table.classList.remove('slide-prev'), 300); // ← 追加
   });
 });
 
 // ▼ 翌月ボタン
 document.querySelectorAll('.next-month').forEach((btn) => {
   btn.addEventListener('click', () => {
+    const table = document.getElementById('schedule-table');
+    table.classList.add('slide-next'); // ← 追加
+
     currentMonth++;
     if (currentMonth === 13) {
       currentMonth = 1;
       currentYear++;
     }
     loadSchedule();
+
+    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
   });
 });
 
 // ▼ 今月ボタン
 document.querySelectorAll('.current-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
+    const table = document.getElementById('schedule-table');
+    table.classList.add('slide-next'); // ← どちらでもOK。自然に見える
+
     const today = new Date();
     currentYear = today.getFullYear();
     currentMonth = today.getMonth() + 1;
     loadSchedule();
+
+    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
   });
 });
 
 // ▼ 初期表示
 loadSchedule();
+
+// ------------------------------
+// スワイプで月移動（スマホ向け）
+// ------------------------------
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+
+  const diff = touchEndX - touchStartX;
+  const table = document.getElementById('schedule-table');
+
+  // 右 → 左（次月へ）
+  if (diff < -50) {
+    table.classList.add('slide-next'); // ← 追加
+    currentMonth++;
+    if (currentMonth === 13) {
+      currentMonth = 1;
+      currentYear++;
+    }
+    loadSchedule();
+    setTimeout(() => table.classList.remove('slide-next'), 300); // ← 追加
+  }
+
+  // 左 → 右（前月へ）
+  if (diff > 50) {
+    table.classList.add('slide-prev'); // ← 追加
+    currentMonth--;
+    if (currentMonth === 0) {
+      currentMonth = 12;
+      currentYear--;
+    }
+    loadSchedule();
+    setTimeout(() => table.classList.remove('slide-prev'), 300); // ← 追加
+  }
+});

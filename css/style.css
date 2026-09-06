@@ -696,3 +696,35 @@ section {
   text-align: center;
   padding-right: 80px;
 }
+
+/* スワイプ時のふわっとアニメーション */
+.slide-next {
+  animation: slideNext 0.25s ease;
+}
+
+.slide-prev {
+  animation: slidePrev 0.25s ease;
+}
+
+@keyframes slideNext {
+  from {
+    transform: translateX(40px);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slidePrev {
+  from {
+    transform: translateX(-40px);
+    opacity: 0.4;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
